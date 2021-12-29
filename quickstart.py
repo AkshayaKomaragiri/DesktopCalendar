@@ -18,7 +18,7 @@ class Events:
         start = 0
 
 
-def main():
+def calendarEvents():
     SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
@@ -57,13 +57,9 @@ def main():
             return
 
         # Prints the start and name of the next 10 events
-        for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+        return events
 
     except HttpError as error:
         print('An error occurred: %s' % error)
 
 
-if __name__ == '__main__':
-    main()
